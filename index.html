@@ -52,6 +52,33 @@
     /* ================ FOOTER ================ */
     .page-footer { margin-top:15px; padding-top:15px; font-size:12px; opacity:0.8; letter-spacing:1px; color:#ffcc00; text-shadow:0 0 8px rgba(255,204,0,0.3); border-top:1px solid rgba(255,107,107,0.2);}
     
+    /* ================ FATIHA IMAGE BUTTON ================ */
+    .fatiha-container img { width:120px; height:auto; border-radius:12px; box-shadow:0 0 15px rgba(255,107,107,0.7); margin-bottom:10px; }
+    .quran-btn { padding:8px 18px; border-radius:25px; background:linear-gradient(135deg,#ff6b6b,#ffcc00); color:#000; font-weight:bold; cursor:pointer; display:inline-block; }
+
+    /* ================ RESPONSIVE FIX ================ */
+    @media (max-width: 480px) {
+      .main-container {
+        max-height: 90vh; /* لا يزيد عن 90% من ارتفاع الشاشة */
+        overflow-y: auto;  /* ظهور تمرير داخلي إذا احتاج */
+        padding: 20px 15px;
+      }
+
+      .social-link {
+        max-width: 100%; /* تجعل الروابط تتوسع بعرض المستطيل الصغير */
+        padding: 12px 15px;
+        font-size: 14px;
+      }
+
+      .profile-name { font-size:28px; }
+      .profile-description { font-size:13px; }
+      .profile-image-container { width:130px; height:130px; }
+      .profile-image { border-width:3px; }
+      .profile-badge { font-size:13px; padding:8px 18px; }
+      .fatiha-container img { width:100px; }
+      .quran-btn { padding:6px 14px; font-size:14px; }
+    }
+
   </style>
 </head>
 
@@ -96,13 +123,11 @@
     <div class="fatiha-container" style="margin: 15px 0; text-align:center;">
       <img 
         src="فاتحة.jpg" 
-        alt="سورة الفاتحة" 
-        style="width:120px; height:auto; border-radius:12px; box-shadow:0 0 15px rgba(255,107,107,0.7); margin-bottom:10px;"
+        alt="سورة الفاتحة"
       >
       <div 
         class="quran-btn" 
-        onclick="document.getElementById('fatihaAudio').play();" 
-        style="padding:8px 18px; border-radius:25px; background:linear-gradient(135deg,#ff6b6b,#ffcc00); color:#000; font-weight:bold; cursor:pointer; display:inline-block;">
+        onclick="document.getElementById('fatihaAudio').play();">
         🔊 تشغيل سورة الفاتحة
       </div>
       <audio id="fatihaAudio" src="001 (2).mp3"></audio>
@@ -161,7 +186,13 @@
   <script>
     (function() {
       const container = document.getElementById('particlesContainer');
-      for(let i=0;i<40;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDelay=Math.random()*6+'s';container.appendChild(p);}
+      for(let i=0;i<40;i++){
+        const p=document.createElement('div');
+        p.className='particle';
+        p.style.left=Math.random()*100+'%';
+        p.style.animationDelay=Math.random()*6+'s';
+        container.appendChild(p);
+      }
     })();
   </script>
 </body>
