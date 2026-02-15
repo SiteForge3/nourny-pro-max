@@ -3,111 +3,255 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>NOURNY | Social Media Links</title>
+<title>NOURNY | Streamer Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Tourney:wght@600;700&display=swap" rel="stylesheet">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-html, body { width:100%; height:100%; overflow:hidden; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif; background:#000; color:#fff; display:flex; justify-content:center; align-items:center; }
-.bg-animation { position:fixed; top:0; left:0; width:100vw; height:100vh; z-index:0; pointer-events:none; opacity:0.7; }
-.animated-shapes { position:absolute; width:100%; height:100%; transform-style:preserve-3d; transform:perspective(500px) rotateX(60deg); }
-.shape { position:absolute; inset:calc(var(--i)*20px); box-shadow:inset 0 0 40px #ff6b6b; clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%); animation:shapeAnimation 4s infinite ease-in-out both; animation-delay:calc(var(--i)*-0.1s);}
-@keyframes shapeAnimation {0%,100%{transform:translateZ(-150px) rotate(0deg);}50%{transform:translateZ(150px) rotate(90deg);}}
-.particles { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1; }
-.particle { position:absolute; width:6px; height:6px; border-radius:50%; background:#ff6b6b; box-shadow:0 0 14px currentColor; animation:particleFloat 6s linear infinite; }
-@keyframes particleFloat {0%{transform:translateY(100vh) scale(1); opacity:1;}100%{transform:translateY(-100px) scale(0.3); opacity:0;}}
-.main-container { position:relative; z-index:10; width:95%; max-width:380px; height:95vh; padding:15px; background:rgba(0,0,0,0.85); backdrop-filter:blur(15px); -webkit-backdrop-filter:blur(15px); border-radius:26px; border:2px solid rgba(255,107,107,0.45); box-shadow:0 0 50px rgba(255,107,107,0.5),0 0 100px rgba(255,204,0,0.4), inset 0 0 20px rgba(255,107,107,0.2); text-align:center; display:flex; flex-direction:column; justify-content:space-around; overflow:hidden; }
-@keyframes containerEntry {0%{opacity:0; transform:translateY(40px) scale(0.96);}100%{opacity:1; transform:translateY(0) scale(1);}}
-.profile-badge { display:inline-block; padding:10px 22px; font-size:14px; font-weight:800; background:linear-gradient(135deg,#ff6b6b,#ffcc00); color:#000; border-radius:30px; box-shadow:0 0 20px rgba(255,107,107,0.8); letter-spacing:1px; text-transform:uppercase; margin-bottom:10px;}
-.profile-image-container { width:140px; height:140px; margin:0 auto; position:relative; }
-.profile-image { width:100%; height:100%; border-radius:50%; border:4px solid #ff6b6b; object-fit:cover; object-position:center 25%; box-shadow:0 0 25px rgba(255,107,107,1),0 0 50px rgba(255,204,0,0.7), inset 0 0 15px rgba(255,107,107,0.5); animation:imageFloat 3s ease-in-out infinite; }
-@keyframes imageFloat {0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-.profile-name { font-size:28px; letter-spacing:1.5px; margin-bottom:6px; text-shadow:0 0 15px #ff6b6b,0 0 35px #ffcc00; font-weight:700;}
-.profile-description { font-size:14px; opacity:0.9; margin-bottom:15px; text-shadow:0 0 10px rgba(255,204,0,0.5); color:#ffcc00;}
-.links-wrapper { width:100%; }
-.social-links { width:100%; display:flex; flex-direction:column; align-items:center; gap:10px; }
-.social-link { display:flex; align-items:center; gap:12px; padding:12px; width:100%; max-width:100%; background:rgba(255,255,255,0.97); color:#111; text-decoration:none; border-radius:28px; font-weight:700; font-size:14px; position:relative; overflow:hidden; transition:all 0.3s cubic-bezier(0.4,0,0.2,1); border:1px solid rgba(255,107,107,0.3); box-shadow:0 4px 10px rgba(0,0,0,0.2);}
-.social-link::before { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(120deg,transparent,rgba(255,107,107,0.4),rgba(255,204,0,0.4),transparent); transform:translateX(-100%); transition:transform 0.6s ease; }
-.social-link:hover::before { transform:translateX(100%); }
-.link-icon { width:24px; height:24px; object-fit:contain; flex-shrink:0; filter:drop-shadow(0 0 3px rgba(255,107,107,0.5)); }
-.page-footer { font-size:12px; opacity:0.8; letter-spacing:1px; color:#ffcc00; text-shadow:0 0 8px rgba(255,204,0,0.3); margin-top:8px;}
-.fatiha-container img { width:100px; height:auto; border-radius:10px; margin-bottom:8px; }
-.quran-btn { padding:6px 14px; border-radius:25px; background:linear-gradient(135deg,#ff6b6b,#ffcc00); color:#000; font-weight:bold; cursor:pointer; display:inline-block; font-size:13px; }
+  :root {
+    --kick-green: #53FC18; /* لون كيك الحقيقي */
+    --tiktok-dark: #000000;
+    --accent-red: #ff0055;
+    --dark-bg: #0a0a0a;
+    --card-bg: rgba(15, 15, 15, 0.92);
+  }
 
-/* Media Query للهاتف الصغير */
-@media screen and (max-width:400px){
-  .main-container { max-width:95%; height:95vh; padding:10px; }
-  .profile-name { font-size:24px; }
-  .profile-description { font-size:13px; }
-  .social-link { font-size:13px; padding:10px; border-radius:24px; gap:8px; }
-  .link-icon { width:22px; height:22px; }
-  .profile-image-container { width:120px; height:120px; }
-  .fatiha-container img { width:90px; }
-  .quran-btn { font-size:12px; padding:5px 12px; }
-}
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  
+  html, body { 
+    width: 100%; height: 100%; overflow-x: hidden;
+    font-family: 'Sora', sans-serif; 
+    background: var(--dark-bg); 
+    color: #fff; 
+    display: flex; justify-content: center; align-items: center;
+    perspective: 1000px;
+  }
+
+  /* خلفية متحركة */
+  .bg-custom {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba(83, 252, 24, 0.08) 0%, transparent 40%), /* توهج أخضر */
+      radial-gradient(circle at 80% 80%, rgba(255, 0, 85, 0.08) 0%, transparent 40%);
+    animation: bgMove 20s infinite alternate;
+  }
+  @keyframes bgMove { 0% { transform: scale(1); } 100% { transform: scale(1.1); } }
+
+  /* الجزيئات */
+  .particles { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+  .particle { position: absolute; width: 4px; height: 4px; background: #fff; border-radius: 50%; opacity: 0.3; animation: floatUp 10s linear infinite; }
+  @keyframes floatUp { 0% { transform: translateY(100vh); } 100% { transform: translateY(-10vh); } }
+
+  /* الكارت الرئيسي - 3D */
+  .stream-card {
+    position: relative; z-index: 10;
+    width: 92%; max-width: 400px;
+    padding: 30px 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(25px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out;
+    display: flex; flex-direction: column; align-items: center;
+  }
+
+  /* Header Status */
+  .status-header {
+    width: 100%; display: flex; justify-content: space-between; align-items: center;
+    padding: 0 5px; margin-bottom: 20px;
+    transform: translateZ(20px); 
+  }
+  
+  .live-badge {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255, 0, 85, 0.15); border: 1px solid var(--accent-red);
+    padding: 5px 12px; border-radius: 6px; font-size: 11px; font-weight: 700;
+    color: var(--accent-red); text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.3);
+  }
+  .live-dot { width: 8px; height: 8px; background: var(--accent-red); border-radius: 50%; animation: blink 1.5s infinite; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .viewers { font-size: 12px; color: rgba(255,255,255,0.5); font-weight: 600; }
+
+  /* Avatar */
+  .avatar-box { width: 110px; height: 110px; position: relative; margin-bottom: 15px; transform: translateZ(50px); }
+  .avatar-ring {
+    position: absolute; inset: -5px; border-radius: 50%;
+    border: 3px solid transparent; border-top-color: var(--kick-green); border-bottom-color: var(--accent-red);
+    animation: spin 4s linear infinite;
+    box-shadow: 0 0 20px rgba(83, 252, 24, 0.3);
+  }
+  .avatar-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid #000; position: relative; z-index: 2; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Info */
+  .username { font-family: 'Tourney', cursive; font-size: 32px; color: #fff; margin-bottom: 5px; transform: translateZ(30px); text-shadow: 0 0 15px rgba(255,255,255,0.2); }
+  .user-tag { font-size: 12px; color: var(--kick-green); background: rgba(83, 252, 24, 0.1); padding: 4px 10px; border-radius: 20px; transform: translateZ(20px); letter-spacing: 1px; }
+
+  /* Main Buttons Row (Kick & TikTok) */
+  .main-buttons-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    transform: translateZ(35px); /* إبراز كبير للأزرار */
+  }
+
+  .btn-platform {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 18px 10px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-weight: 800; font-size: 15px;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Kick Button Style */
+  .btn-kick {
+    background: var(--kick-green);
+    color: #000;
+    box-shadow: 0 0 25px rgba(83, 252, 24, 0.4);
+  }
+  .btn-kick:hover { transform: translateY(-3px); box-shadow: 0 0 35px rgba(83, 252, 24, 0.6); }
+  .btn-kick img { width: 28px; height: 28px; margin-bottom: 5px; filter: drop-shadow(0 0 2px rgba(0,0,0,0.2)); }
+
+  /* TikTok Button Style */
+  .btn-tiktok {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  }
+  .btn-tiktok:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-3px); }
+  .btn-tiktok img { width: 24px; height: 24px; margin-bottom: 5px; }
+
+  /* Secondary Links Grid */
+  .links-grid { width: 100%; display: grid; grid-template-columns: 1fr; gap: 10px; transform: translateZ(10px); }
+  
+  .link-item {
+    display: flex; align-items: center; padding: 12px 15px;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px; text-decoration: none; color: #ccc; font-size: 13px; font-weight: 600;
+    transition: all 0.2s;
+  }
+  .link-item:hover { background: rgba(255,255,255,0.07); color: #fff; padding-left: 20px; }
+  .link-item img { width: 20px; height: 20px; margin-right: 12px; opacity: 0.7; }
+  .link-item:hover img { opacity: 1; }
+
+  /* Quran Section */
+  .quran-section { margin-top: 25px; text-align: center; transform: translateZ(15px); }
+  .quran-img { width: 80px; height: auto; border-radius: 8px; margin-bottom: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+  .btn-quran { padding: 8px 20px; border-radius: 20px; background: transparent; border: 1px solid var(--kick-green); color: var(--kick-green); font-family: 'Sora', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; }
+
+  /* Footer */
+  .footer { margin-top: 20px; font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 1px; transform: translateZ(5px); }
+
+  /* Responsive - تعطيل 3D على الجوال */
+  @media (max-width: 480px) {
+    .stream-card { padding: 25px 15px; transform: none !important; }
+    .status-header, .avatar-box, .username, .user-tag, .main-buttons-row, .links-grid, .quran-section, .footer { transform: none !important; }
+    .username { font-size: 28px; }
+  }
 </style>
 </head>
 <body>
-<div class="bg-animation" aria-hidden="true">
-  <div class="animated-shapes">
-    <div class="shape" style="--i:0"></div>
-    <div class="shape" style="--i:1"></div>
-    <div class="shape" style="--i:2"></div>
-    <div class="shape" style="--i:3"></div>
-    <div class="shape" style="--i:4"></div>
-    <div class="shape" style="--i:5"></div>
-    <div class="shape" style="--i:6"></div>
-    <div class="shape" style="--i:7"></div>
-    <div class="shape" style="--i:8"></div>
-    <div class="shape" style="--i:9"></div>
-    <div class="shape" style="--i:10"></div>
-    <div class="shape" style="--i:11"></div>
-    <div class="shape" style="--i:12"></div>
-    <div class="shape" style="--i:13"></div>
-    <div class="shape" style="--i:14"></div>
+
+<div class="bg-custom"></div>
+<div class="particles" id="particles"></div>
+
+<div class="stream-card" id="card">
+  
+  <!-- Header -->
+  <div class="status-header">
+    <div class="live-badge"><div class="live-dot"></div><span>LIVE</span></div>
+    <div class="viewers">Watching: 1.2K</div>
   </div>
+
+  <!-- Profile -->
+  <div class="avatar-box">
+    <div class="avatar-ring"></div>
+    <img src="3.jpeg" alt="NOURNY" class="avatar-img">
+  </div>
+  <h1 class="username">NOURNY</h1>
+  <div class="user-tag">PRO STREAMER</div>
+
+  <!-- Main Buttons: Kick & TikTok -->
+  <div class="main-buttons-row">
+    <!-- Kick Button -->
+    <a href="https://kick.com/nourny9" target="_blank" class="btn-platform btn-kick">
+      <img src="https://cdn.simpleicons.org/kick/000000" alt="Kick">
+      <span>WATCH LIVE</span>
+    </a>
+    
+    <!-- TikTok Button -->
+    <a href="https://www.tiktok.com/@nourny9" target="_blank" class="btn-platform btn-tiktok">
+      <img src="https://cdn.simpleicons.org/tiktok/FFFFFF" alt="TikTok">
+      <span>TIKTOK</span>
+    </a>
+  </div>
+
+  <!-- Secondary Links -->
+  <div class="links-grid">
+    <a href="https://www.youtube.com/@nourny9" target="_blank" class="link-item">
+      <img src="https://cdn.simpleicons.org/youtube/FF0000" alt=""><span>YouTube Channel</span>
+    </a>
+    <a href="https://www.instagram.com/nourny9" target="_blank" class="link-item">
+      <img src="https://cdn.simpleicons.org/instagram/E4405F" alt=""><span>Instagram Profile</span>
+    </a>
+    <a href="https://www.tiktok.com/@nourny99" target="_blank" class="link-item">
+       <img src="https://cdn.simpleicons.org/tiktok/FFFFFF" alt=""><span>TikTok Backup</span>
+    </a>
+  </div>
+
+  <!-- Quran Section -->
+  <div class="quran-section">
+    <img src="فاتحة.jpg" alt="سورة الفاتحة" class="quran-img">
+    <br>
+    <button class="btn-quran" onclick="document.getElementById('qAudio').play()">🔊 تشغيل الفاتحة</button>
+    <audio id="qAudio" src="001 (2).mp3"></audio>
+  </div>
+
+  <div class="footer">© 2024 NOURNY SYSTEMS</div>
 </div>
-<div class="particles" id="particlesContainer" aria-hidden="true"></div>
-
-<main class="main-container">
-<div class="profile-badge">⭐ CONTENT CREATOR</div>
-<div class="profile-image-container"><img src="3.jpeg" alt="NOURNY Profile" class="profile-image"></div>
-
-<div class="fatiha-container">
-  <img src="فاتحة.jpg" alt="سورة الفاتحة">
-  <div class="quran-btn" onclick="document.getElementById('fatihaAudio').play();">🔊 تشغيل سورة الفاتحة</div>
-  <audio id="fatihaAudio" src="001 (2).mp3"></audio>
-</div>
-
-<h1 class="profile-name">NOURNY</h1>
-<p class="profile-description">Instagram • TikTok • Kick • YouTube</p>
-
-<div class="links-wrapper">
-<nav class="social-links">
-<a href="https://www.instagram.com/nourny9?igsh=c2p4OGFuYXd5eTI5" class="social-link" target="_blank"><img src="7.avif" alt="Instagram" class="link-icon"><span>Instagram</span></a>
-<a href="https://www.instagram.com/channel/AbYucOMTNh7CcepY/" class="social-link" target="_blank"><img src="7.avif" alt="Instagram Group" class="link-icon"><span>Instagram Group</span></a>
-<a href="https://www.tiktok.com/@nourny9?_r=1&_t=ZM-93D4akUysrT" class="social-link" target="_blank"><img src="0.avif" alt="TikTok" class="link-icon"><span>TikTok</span></a>
-<a href="https://www.tiktok.com/@nourny99?_r=1&_t=ZM-93D4oKeZZL1" class="social-link" target="_blank"><img src="0.avif" alt="TikTok" class="link-icon"><span>TikTok</span></a>
-<a href="https://kick.com/nourny9" class="social-link" target="_blank"><img src="11.jpeg" alt="Kick" class="link-icon"><span>Kick</span></a>
-<a href="https://youtube.com/@nourny9?feature=shared" class="social-link" target="_blank"><img src="5.png" alt="YouTube" class="link-icon"><span>YouTube</span></a>
-</nav>
-</div>
-
-<footer class="page-footer">
-  <p>© 2024 • NOURNY • ALL RIGHTS RESERVED</p>
-  <p style="font-size:10px; margin-top:5px; opacity:0.6;">Hand-coded with precision • No frameworks used</p>
-</footer>
-</main>
 
 <script>
-(function() {
-  const container = document.getElementById('particlesContainer');
-  for(let i=0;i<40;i++){
-    const p=document.createElement('div');
-    p.className='particle';
-    p.style.left=Math.random()*100+'%';
-    p.style.animationDelay=Math.random()*6+'s';
-    container.appendChild(p);
+  // 1. Create Particles
+  const pContainer = document.getElementById('particles');
+  for(let i=0; i<25; i++) {
+    let p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDelay = Math.random() * 8 + 's';
+    p.style.opacity = Math.random() * 0.4;
+    pContainer.appendChild(p);
   }
-})();
+
+  // 2. 3D Tilt Effect (Desktop Only)
+  const card = document.getElementById('card');
+  const isMobile = window.matchMedia("(max-width: 480px)").matches;
+
+  if (!isMobile) {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -8; 
+      const rotateY = ((x - centerX) / centerX) * 8;
+
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+    });
+  }
 </script>
 </body>
 </html>
